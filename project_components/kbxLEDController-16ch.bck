@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PMV20ENR
+D 30V Vds, 7.6A Id, N-Channel MOSFET, SOT-23
+K N-Channel MOSFET
+F https://assets.nexperia.com/documents/data-sheet/PMV20EN.pdf
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,209 @@
+esphome:
+  name: esp_16ch_led_controller_demo
+  platform: ESP32
+  board: featheresp32
+
+wifi:
+  ssid: "abcdefghijklmnop"
+  password: "abcdefghijklmnop"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "esp_16ch_led_controller_demo"
+    password: "abcdefghijklmnop"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "abcdefghijklmnop"
+
+ota:
+  password: "abcdefghijklmnop"
+
+status_led:
+  pin:
+    number: GPIO5
+    inverted: true
+
+binary_sensor:
+  - platform: gpio
+    id: leds_off_button
+    pin:
+      number: GPIO0
+      inverted: true
+    on_click:
+      min_length: 50ms
+      max_length: 500ms
+      then:
+        - light.turn_off:
+            id: j1_led_lights
+        - light.turn_off:
+            id: j2_led_lights
+        - light.turn_off:
+            id: j3_led_lights
+        - light.turn_off:
+            id: j4_led_lights
+  - platform: gpio
+    id: j1_led_on_button
+    pin:
+      number: GPIO35
+      inverted: true
+    on_click:
+      min_length: 50ms
+      max_length: 500ms
+      then:
+        - light.turn_on:
+            id: j1_led_lights
+            brightness: 0.5
+            red: 1.0
+            green: 1.0
+            blue: 1.0
+            white: 1.0
+  - platform: gpio
+    id: j2_led_on_button
+    pin:
+      number: GPIO34
+      inverted: true
+    on_click:
+      min_length: 50ms
+      max_length: 500ms
+      then:
+        - light.turn_on:
+            id: j2_led_lights
+            brightness: 0.5
+            red: 1.0
+            green: 1.0
+            blue: 1.0
+            white: 1.0
+  - platform: gpio
+    id: j3_led_on_button
+    pin:
+      number: GPIO39
+      inverted: true
+    on_click:
+      min_length: 50ms
+      max_length: 500ms
+      then:
+        - light.turn_on:
+            id: j3_led_lights
+            brightness: 0.5
+            red: 1.0
+            green: 1.0
+            blue: 1.0
+            white: 1.0
+  - platform: gpio
+    id: j4_led_on_button
+    pin:
+      number: GPIO36
+      inverted: true
+    on_click:
+      min_length: 50ms
+      max_length: 500ms
+      then:
+        - light.turn_on:
+            id: j4_led_lights
+            brightness: 0.5
+            red: 1.0
+            green: 1.0
+            blue: 1.0
+            white: 1.0
+
+light:
+  - platform: rgbw
+    id: j1_led_lights
+    name: "J1 Lights"
+    red: j1_pwm_red_channel
+    green: j1_pwm_green_channel
+    blue: j1_pwm_blue_channel
+    white: j1_pwm_white_channel
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+  - platform: rgbw
+    id: j2_led_lights
+    name: "J2 Lights"
+    red: j2_pwm_red_channel
+    green: j2_pwm_green_channel
+    blue: j2_pwm_blue_channel
+    white: j2_pwm_white_channel
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+  - platform: rgbw
+    id: j3_led_lights
+    name: "J3 Lights"
+    red: j3_pwm_red_channel
+    green: j3_pwm_green_channel
+    blue: j3_pwm_blue_channel
+    white: j3_pwm_white_channel
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+  - platform: rgbw
+    id: j4_led_lights
+    name: "J4 Lights"
+    red: j4_pwm_red_channel
+    green: j4_pwm_green_channel
+    blue: j4_pwm_blue_channel
+    white: j4_pwm_white_channel
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+
+output:
+  - platform: ledc
+    id: j1_pwm_red_channel
+    pin: GPIO15
+  - platform: ledc
+    id: j1_pwm_green_channel
+    pin: GPIO17
+  - platform: ledc
+    id: j1_pwm_blue_channel
+    pin: GPIO12
+  - platform: ledc
+    id: j1_pwm_white_channel
+    pin: GPIO14
+  - platform: ledc
+    id: j2_pwm_red_channel
+    pin: GPIO16
+  - platform: ledc
+    id: j2_pwm_green_channel
+    pin: GPIO18
+  - platform: ledc
+    id: j2_pwm_blue_channel
+    pin: GPIO13
+  - platform: ledc
+    id: j2_pwm_white_channel
+    pin: GPIO27
+  - platform: ledc
+    id: j3_pwm_red_channel
+    pin: GPIO22
+  - platform: ledc
+    id: j3_pwm_green_channel
+    pin: GPIO23
+  - platform: ledc
+    id: j3_pwm_blue_channel
+    pin: GPIO21
+  - platform: ledc
+    id: j3_pwm_white_channel
+    pin: GPIO19
+  - platform: ledc
+    id: j4_pwm_red_channel
+    pin: GPIO25
+  - platform: ledc
+    id: j4_pwm_green_channel
+    pin: GPIO26
+  - platform: ledc
+    id: j4_pwm_blue_channel
+    pin: GPIO33
+  - platform: ledc
+    id: j4_pwm_white_channel
+    pin: GPIO32
