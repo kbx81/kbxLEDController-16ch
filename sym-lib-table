@@ -1,3 +1,4 @@
 (sym_lib_table
-  (lib (name kbxLEDController-16ch)(type Legacy)(uri ${KIPRJMOD}/project_components/kbxLEDController-16ch.lib)(options "")(descr ""))
+  (lib (name "kbxLEDController-16ch")(type "Legacy")(uri "${KIPRJMOD}/project_components/kbxLEDController-16ch.lib")(options "")(descr ""))
+  (lib (name "kbxLEDController-16ch-rescue")(type "Legacy")(uri "${KIPRJMOD}/kbxLEDController-16ch-rescue.lib")(options "")(descr ""))
 )
