@@ -42,7 +42,7 @@ or less any kind of strips, whether monochrome, RGB, RGBW, RGBWW, the variable-c
 
 They will work with a range of voltages, from 5 volts up to 24 volts.
 
-Please see the BoM [here](kbxLEDController-16ch.bom.csv) or [here](https://octopart.com/bom-tool/OrMoA1no) for a list
+Please see the BoM [here](kbxLEDController-16ch_bom.csv) or [here](https://octopart.com/bom-tool/OrMoA1no) for a list
 of parts needed to build one. I had the PCBs fabricated by [Elecrow](https://www.elecrow.com) but nearly any PCB
 fabricator should be able to manufacture these without any issues.
 
